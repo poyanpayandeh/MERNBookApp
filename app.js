@@ -4,13 +4,21 @@ require("dotenv").config();
 var cors = require("cors");
 const path = require("path");
 
+// cors
+app.use(cors({ origin: true, credentials: true }));
+
+app.use(function (req, res, next) {
+  res.setHeader(
+    "Access-Control-Allow-Origin",
+    "http://localhost:8082/api/books"
+  );
+  next();
+});
+
 // routes
 const books = require("./routes/api/books");
 
 const app = express();
-
-// cors
-app.use(cors({ origin: true, credentials: true }));
 
 // Connect Database
 connectDB();
@@ -20,14 +28,6 @@ app.use(express.json({ extended: false }));
 
 // use Routes
 app.use("/api/books", books);
-
-app.use(function (req, res, next) {
-  res.setHeader(
-    "Access-Control-Allow-Origin",
-    "http://localhost:8082/api/books"
-  );
-  next();
-});
 
 app.use(express.static(path.join(__dirname, "client", "build")));
 
