@@ -13,10 +13,7 @@ const app = express();
 app.use(cors({ origin: true, credentials: true }));
 
 app.use(function (req, res, next) {
-  res.setHeader(
-    "Access-Control-Allow-Origin",
-    "http://localhost:8082/api/books"
-  );
+  res.setHeader("Access-Control-Allow-Origin", "*");
   next();
 });
 
