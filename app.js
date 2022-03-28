@@ -22,7 +22,10 @@ app.use(express.json({ extended: false }));
 app.use("/api/books", books);
 
 app.use(function (req, res, next) {
-  res.setHeader("Access-Control-Allow-Origin", "http://localhost:8082");
+  res.setHeader(
+    "Access-Control-Allow-Origin",
+    "http://localhost:8082/api/books"
+  );
   next();
 });
 
