@@ -4,20 +4,29 @@ require("dotenv").config();
 var cors = require("cors");
 const path = require("path");
 
+var corsMiddleware = function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "http://localhost:8082/api/books"); //replace localhost with actual host
+  res.header(
+    "Access-Control-Allow-Methods",
+    "OPTIONS, GET, PUT, PATCH, POST, DELETE"
+  );
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Content-Type, X-Requested-With, Authorization"
+  );
+
+  next();
+};
+
 // Connect Database
 connectDB();
 
 const app = express();
 
 // cors
-app.use(cors({ origin: true, credentials: true }));
+//app.use(cors({ origin: true, credentials: true }));
 
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin," * "");
-  res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
-  res.header("Access-Control-Allow-Headers," * "Content-Type");
-  next();
-});
+app.use(corsMiddleware);
 
 // routes
 const books = require("./routes/api/books");
