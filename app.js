@@ -4,6 +4,9 @@ require("dotenv").config();
 var cors = require("cors");
 const path = require("path");
 
+// Connect Database
+connectDB();
+
 const app = express();
 
 // cors
@@ -16,9 +19,6 @@ app.use(function (req, res, next) {
   );
   next();
 });
-
-// Connect Database
-connectDB();
 
 // routes
 const books = require("./routes/api/books");
