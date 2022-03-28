@@ -10,7 +10,7 @@ const books = require("./routes/api/books");
 const app = express();
 
 // cors
-app.use(cors({ origin: true, credentials: true }));
+app.use(cors());
 
 // Connect Database
 connectDB();
