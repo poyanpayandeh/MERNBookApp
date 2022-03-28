@@ -14,7 +14,7 @@ app.use(cors());
 
 //CORS middleware
 var corsMiddleware = function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "localhost"); //replace localhost with actual host
+  res.header("Access-Control-Allow-Origin", port); //replace localhost with actual host
   res.header(
     "Access-Control-Allow-Methods",
     "OPTIONS, GET, PUT, PATCH, POST, DELETE"
