@@ -30,7 +30,7 @@ app.use(corsMiddleware);
 
 // routes
 const books = require("./routes/api/books");
-//const { get } = require("config");
+const { get } = require("config");
 
 // Init Middleware
 app.use(express.json({ extended: false }));
