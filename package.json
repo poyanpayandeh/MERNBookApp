@@ -4,14 +4,10 @@
   "description": "",
   "main": "app.js",
   "scripts": {
+    "start": "node app.js",
     "app": "nodemon app,js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "cd client && npm run build",
-    "install-client": "cd client && npm install",
-    "heroku-postbuild": "npm run install-client && npm run build",
-    "server": "nodemon app.js",
-    "develop": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start --prefix client\"",
-    "start": "concurrently --kill-others-on-fail \"npm run app.js\" \"npm run app.js --prefix client\""
+    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
   },
   "engines": {
     "node": "16.14.0"
