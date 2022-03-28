@@ -7,8 +7,6 @@ const path = require("path");
 // Connect Database
 connectDB();
 
-const app = express();
-
 // cors
 app.use(cors());
 
@@ -16,6 +14,8 @@ app.use(cors());
   res.header("Access-Control-Allow-Origin", "*");
   next();
 });*/
+
+const app = express();
 
 // routes
 const books = require("./routes/api/books");
