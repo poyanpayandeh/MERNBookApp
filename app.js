@@ -4,14 +4,6 @@ require("dotenv").config();
 var cors = require("cors");
 const path = require("path");
 
-// routes
-const books = require("./routes/api/books");
-
-const app = express();
-
-// cors
-app.use(cors());
-
 //CORS middleware
 var corsMiddleware = function (req, res, next) {
   res.header("Access-Control-Allow-Origin", port); //replace localhost with actual host
@@ -27,7 +19,13 @@ var corsMiddleware = function (req, res, next) {
   next();
 };
 
-app.use(corsMiddleware);
+// routes
+const books = require("./routes/api/books");
+
+const app = express();
+
+// cors
+app.use(cors());
 
 // Connect Database
 connectDB();
@@ -37,6 +35,8 @@ app.use(express.json({ extended: false }));
 
 // use Routes
 app.use("/api/books", books);
+
+app.use(corsMiddleware);
 
 app.use(express.static(path.join(__dirname, "client", "build")));
 
