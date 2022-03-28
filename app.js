@@ -4,6 +4,11 @@ require("dotenv").config();
 var cors = require("cors");
 const path = require("path");
 
+const app = express();
+
+// Connect Database
+connectDB();
+
 // cors
 app.use(cors({ origin: true, credentials: true }));
 
@@ -17,11 +22,6 @@ app.use(function (req, res, next) {
 
 // routes
 const books = require("./routes/api/books");
-
-const app = express();
-
-// Connect Database
-connectDB();
 
 // Init Middleware
 app.use(express.json({ extended: false }));
