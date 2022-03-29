@@ -14,9 +14,7 @@ class ShowBookList extends Component {
 
   componentDidMount() {
     axios
-      .get(
-        "/Users/poyanpayandeh/Downloads/github/MERNBookApp/routes/api/books.js"
-      )
+      .get("/Users/poyanpayandeh/Downloads/github/MERNBookApp/routes/api/books")
       .then((res) => {
         this.setState({
           books: res.data,
