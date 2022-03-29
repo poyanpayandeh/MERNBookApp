@@ -4,10 +4,9 @@ require("dotenv").config();
 var cors = require("cors");
 const path = require("path");
 
+const app = express();
 // Connect Database
 connectDB();
-
-const app = express();
 
 // cors
 app.use(cors({ origin: true, credentials: true }));
