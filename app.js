@@ -5,7 +5,7 @@ require("dotenv").config();
 const path = require("path");
 
 var corsMiddleware = function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "http://localhost:8082/api/books/");
+  res.header("Access-Control-Allow-Origin", "*");
   res.header(
     "Access-Control-Allow-Methods",
     "OPTIONS, GET, PUT, PATCH, POST, DELETE"
@@ -40,7 +40,8 @@ app.use("/api/books", books);
 
 app.use(express.static(path.join(__dirname, "client", "build")));
 
-const port = process.env.PORT || 8082;
+//const port = process.env.PORT || 8082;
+const port = 8082;
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "client", "build", "index.html"));
