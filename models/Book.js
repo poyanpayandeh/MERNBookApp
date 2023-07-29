@@ -17,13 +17,15 @@ const BookSchema = new mongoose.Schema({
     type: String,
   },
   published_date: {
-    type: String,
+    type: Date,
   },
   publisher: {
     type: String,
   },
   updated_date: {
     type: Date,
-    required: true,
+    default: Date.now,
   },
 });
+
+module.exports = Book = mongoose.model("book", BookSchema);
