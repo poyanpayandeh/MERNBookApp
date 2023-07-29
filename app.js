@@ -2,23 +2,23 @@ const express = require("express");
 const connectDB = require("./config/db");
 const cors = require("cors");
 
-//routes
+// routes
 const books = require("./routes/api/books");
 
 const app = express();
 
-//connect Database
+// Connect Database
 connectDB();
 
-//cors
+// cors
 app.use(cors({ origin: true, credentials: true }));
 
-//init middleware:
+// Init Middleware
 app.use(express.json({ extended: false }));
 
-app.get("/", (req, res) => res.send("Hello World"));
+app.get("/", (req, res) => res.send("Hello world!"));
 
-//use routes
+// use Routes
 app.use("/api/books", books);
 
 const port = process.env.PORT || 8082;
