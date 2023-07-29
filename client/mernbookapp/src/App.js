@@ -1,11 +1,12 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.css";
+
 import CreateBook from "./components/CreateBook";
 import ShowBookList from "./components/ShowBookList";
 import ShowBookDetails from "./components/ShowBookDetails";
 import UpdateBookInfo from "./components/UpdateBookInfo";
 
-function App() {
+const App = () => {
   return (
     <Router>
       <div>
@@ -18,6 +19,6 @@ function App() {
       </div>
     </Router>
   );
-}
+};
 
 export default App;
